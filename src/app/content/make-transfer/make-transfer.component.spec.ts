@@ -37,6 +37,16 @@ describe('MakeTransferComponent', () => {
     expect(component.transferForm.valid).toEqual(false);
   });
 
+  it('should lowest decimal amount field', () => {
+    component.transferForm.controls.toAccount.setValue('Starbucks');
+    component.transferForm.controls.amount.setValue(0.01);
+    component.onSubmit();
+    // check submitted
+    expect(component.submitted).toEqual(true);
+    // check form invalid
+    expect(component.transferForm.valid).toEqual(true);
+  });
+
   it('should minus amount field', () => {
     component.transferForm.controls.toAccount.setValue('Starbucks');
     component.transferForm.controls.amount.setValue(-5);
@@ -45,6 +55,16 @@ describe('MakeTransferComponent', () => {
     expect(component.submitted).toEqual(true);
     // check form invalid
     expect(component.transferForm.valid).toEqual(false);
+  });
+
+  it('should zero decimal amount field', () => {
+    component.transferForm.controls.toAccount.setValue('Starbucks');
+    component.transferForm.controls.amount.setValue(0.15);
+    component.onSubmit();
+    // check submitted
+    expect(component.submitted).toEqual(true);
+    // check form invalid
+    expect(component.transferForm.valid).toEqual(true);
   });
 
 

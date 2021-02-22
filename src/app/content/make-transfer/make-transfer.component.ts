@@ -32,7 +32,7 @@ export class MakeTransferComponent implements OnInit {
   constructor(private modalService: NgbModal, private transactionService: TransactionService) {
     this.accountTitle = 'My Personal Account';
     this.currency = '€';
-    this.balance = 1000;
+    this.balance = 5824.76;
     this.overdraftLimit = 500;
     this.amount = 0;
     this.submitted = false;
@@ -120,14 +120,15 @@ export class MakeTransferComponent implements OnInit {
         },
         [
           Validators.required,
-          Validators.min(1),
+          Validators.min(0.01),
           minBalanceValidator(this.balance, this.overdraftLimit)
         ]),
     });
   }
 
+  // tslint:disable-next-line:typedef
   validateNumber(e: any) {
-    let input = String.fromCharCode(e.charCode);
+    const input = String.fromCharCode(e.charCode);
     const reg = /^\d*(?:[.,]\d{1,2})?$/;
 
     if (!reg.test(input)) {
