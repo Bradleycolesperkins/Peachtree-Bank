@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../bb-ui/styles/vars";
+
+
+html, body { height: 100%; }
+body {margin: 0;font-family: 'Kanit', "Helvetica Neue", sans-serif;}
+
+app-root {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  flex-direction: column;
+
+  background: url("/assets/background.jpg");
+  background-size: cover;
+  backdrop-filter: blur(5px);
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+
+mat-card.peachtree-bank-card {
+  padding: 0;
+  border-radius: $border-radius;
+
+  mat-card-title,
+  mat-card-content {
+    padding: $large-spacing;
+  }
+
+  mat-card-title {
+    background: $primary-blue;
+    color: #fff;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  mat-card-content {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+.btn {
+  &.btn-primary {
+    background: #ec6f31;
+    border: 1px solid #d65415;
+  }
+  &.btn-secondary {
+    background: #ffffff;
+    color: #000;
+    border: 1px solid #000;
+  }
+}
+.merchant-details {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+
+.custom-input {
+
+  .mat-form-field-infix {
+    border-top: 0;
+    margin-top: 0.25em;
+    padding-left:0.75em;
+  }
+  &.mat-form-field-appearance-outline .mat-form-field-flex {
+    margin-top: 0;
+  }
+  &.custom-prefix {
+    .mat-form-field-infix {
+      padding-left:3.50em;
+    }
+    .mat-form-field-flex {
+      padding-left: 0;
+    }
+    .mat-form-field-prefix {
+      align-items: center;
+      display: flex;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      position: absolute;
+      line-height: 1.5;
+      color: #495057;
+      text-align: center;
+      white-space: nowrap;
+      background-color: #e9ecef;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      bottom: 0;
+    }
+  }
+
+
+}
+
+input.form-control {
+  font-family: 'Kanit', "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+
+  &.highlight {
+    border: 2px solid #f44336;
+  }
+  &::placeholder {
+    font-style: italic;
+  }
+}

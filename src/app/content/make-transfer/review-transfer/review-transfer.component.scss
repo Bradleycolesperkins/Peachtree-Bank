@@ -1,0 +1,19 @@
+.modal-title {
+  font-weight: normal;
+  span {
+    font-weight: 500;
+  }
+  margin-bottom: 15px;
+}
+
+h6 {
+  &.title {
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+  &.confirmations {
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+}

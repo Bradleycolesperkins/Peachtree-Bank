@@ -1,0 +1,88 @@
+mat-card {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+
+  mat-card-title {
+    fa-icon {
+      padding-right: 10px;
+    }
+    font-weight: 100;
+    span {
+      font-weight: 500;
+    }
+  }
+
+  ul.transaction-list {
+    list-style-type: none;
+    padding: 0;
+    max-height: 550px;
+    overflow: auto;
+
+    li {
+      &:last-child {
+        app-transaction-item {
+          border-bottom: 0;
+        }
+      }
+
+      app-transaction-item {
+        font-family: 'Kanit', "Helvetica Neue", sans-serif;
+        display: flex;
+        padding: 15px 0px;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        font-weight: 500;
+
+        > div {
+          flex: 1;
+        }
+
+        .transaction-colour {
+          max-width: 5px;
+        }
+
+        .transaction-date {
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+        }
+
+        .transactionMerchantName {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+
+        }
+
+        .transaction-merchant-name {
+          font-size: 1rem;
+          margin-top: 5px;
+        }
+
+        .transaction-type {
+          font-size: 0.9rem;
+          color: #888f95;
+          font-weight: normal;
+          margin-bottom: 5px;
+        }
+
+        .transaction-amount {
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          justify-content: flex-end;
+
+          &.income {
+            color: #48b15d;
+          }
+
+          &.outgoing {
+            color: #e1525e;
+          }
+        }
+      }
+    }
+  }
+}
+

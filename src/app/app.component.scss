@@ -1,0 +1,13 @@
+main {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+
+  app-content {
+    width: 100%;
+  }
+}
+
+.footer {
+  padding: 0px;
+}

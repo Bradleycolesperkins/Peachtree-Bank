@@ -1,0 +1,30 @@
+<mat-card class="peachtree-bank-card">
+  <mat-card-title>
+    <fa-icon [icon]="faList"></fa-icon> Transactions <span>List</span>
+  </mat-card-title>
+  <mat-card-content>
+    <app-filter (inputChange)="filterTransactions($event)"></app-filter>
+
+    <ul class="transaction-list">
+      <li *ngFor="let transaction of transactions | orderByDate ">
+        <app-transaction-item>
+          <div class="transaction-colour" data-test-hook='transactionColour' [ngStyle]="{'background-color': transaction.categoryCode}"></div>
+          <div class="transaction-date" data-test-hook='transactionDate'>{{ transaction.dates.valueDate | date:'MMM. d' }}</div>
+          <div class="transaction-merchant-name" data-test-hook='transactionMerchantName'>{{ transaction.merchant.name }}</div>
+          <div class="transaction-type" data-test-hook='transactionType'>{{ transaction.transaction.type }}</div>
+          <div class="transaction-amount" data-test-hook='transactionAmount'
+               [ngClass]="transactionType(transaction.transaction.creditDebitIndicator) ? 'income' : 'outgoing'"
+          >
+            {{ ( 0 | currency : transaction.transaction.amountCurrency.currencyCode  : true ) | slice:0:1 }}
+            {{transactionTypeAmount(transaction.transaction.amountCurrency.amount, transaction.transaction.creditDebitIndicator) }}
+          </div>
+        </app-transaction-item>
+      </li>
+    </ul>
+
+
+
+
+
+  </mat-card-content>
+</mat-card>
